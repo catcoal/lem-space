@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import ResizeHandle from "./components/ResizeHandle.vue"
+import Menu from "./components/Menu/index.vue";
+import ResizeHandle from "./components/ResizeHandle.vue";
+
 </script>
 
 <template>
     <div class="default-layout">
         <aside class="aside-left">
+            <Menu></Menu>
             <ResizeHandle class="right"></ResizeHandle>
         </aside>
         <main>

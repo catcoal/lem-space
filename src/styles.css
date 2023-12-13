@@ -28,6 +28,13 @@ html {
   --color-font-default: #f8f9fa;
 }
 
+:root {
+  --theme-color: rgba(84, 183, 129, 1);
+  --theme-color-tiny: rgba(84, 183, 129, 0.1);
+
+  --error-color: var(--color-scale-coral-6);
+}
+
 /* color */
 :root {
   --color-scale-black: #1b1f24;
@@ -122,11 +129,4 @@ html {
   --color-scale-coral-7: #801f0f;
   --color-scale-coral-8: #691105;
   --color-scale-coral-9: #510901;
-}
-
-:root {
-  --theme-color: rgba(84, 183, 129);
-  --theme-color-tiny: rgba(84, 183, 129, 0.1);
-
-  --error-color: var(--color-scale-coral-6);
 }
