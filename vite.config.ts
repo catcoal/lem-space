@@ -18,5 +18,12 @@ export default defineConfig(async () => ({
   server: {
     port: 1420,
     strictPort: true,
+    proxy: {
+      "/random_image": {
+        target: "https://picsum.photos",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/random_image/, "/v2"), // 重写请求路径
+      },
+    },
   },
 }));
