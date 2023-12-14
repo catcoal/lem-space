@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@heroicons/vue": "^2.0.18",
     "@tauri-apps/api": "^1.5.1",
     "ant-design-vue": "^4.0.7",
-    "vue": "^3.3.4"
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.6",
