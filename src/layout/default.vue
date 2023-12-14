@@ -11,7 +11,7 @@ import ResizeHandle from "./components/ResizeHandle.vue";
             <ResizeHandle class="right"></ResizeHandle>
         </aside>
         <main>
-            内容
+            <RouterView></RouterView>
         </main>
         <aside class="aside-right">
             <ResizeHandle class="left"></ResizeHandle>
