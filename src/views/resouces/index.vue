@@ -17,7 +17,15 @@ import Resource from "./components/Resource/index.vue";
 </template>
 
 <style scoped>
+.resource-container {
+    position: relative;
+    height: 100vh;
+}
+
 .header-wrap {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -25,6 +33,7 @@ import Resource from "./components/Resource/index.vue";
 }
 
 .body-wrap {
-    padding: 1rem;
+    height: 100%;
+    padding-top: 6rem;
 }
 </style>
