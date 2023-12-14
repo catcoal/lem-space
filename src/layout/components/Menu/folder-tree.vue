@@ -73,7 +73,7 @@ const menuData: TreeProps['treeData'] = [
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0.2rem;
+    border-radius: var(--borderRadius-m);
     color: var(--color-font-default);
 }
 

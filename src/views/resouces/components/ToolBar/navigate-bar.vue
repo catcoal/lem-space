@@ -29,7 +29,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/solid';
     align-items: center;
     justify-content: center;
     color: var(--color-font-default);
-    border-radius: 5px;
+    border-radius: var(--borderRadius-m);
     transition: .3s ease;
     transition-property: background-color;
 }

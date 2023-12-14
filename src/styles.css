@@ -33,6 +33,11 @@ html {
   --theme-color-tiny: rgba(33, 139, 255, 0.1);
 
   --error-color: var(--color-scale-coral-6);
+
+  --borderRadius-s: 0.1875rem;
+  --borderRadius-m: 0.375rem;
+  --borderRadius-l: 0.75rem;
+  --borderRadius-r: 50%;
 }
 
 /* color */

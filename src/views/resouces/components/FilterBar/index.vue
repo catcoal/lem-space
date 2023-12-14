@@ -1,20 +1,42 @@
 <script setup lang="ts">
-import { ChevronDownIcon } from '@heroicons/vue/24/solid';
+import { ChevronDownIcon, ArrowsUpDownIcon } from '@heroicons/vue/24/solid';
 </script>
 
 <template>
     <div class="filter-bar-wrap">
         <div class="filter-list">
             <div class="filter-item">
-                <span>筛选</span>
+                <span class="color-wheel"></span>
+                <span>颜色</span>
                 <ChevronDownIcon />
             </div>
             <div class="filter-item">
-                <span>筛选</span>
+                <span>格式</span>
                 <ChevronDownIcon />
             </div>
             <div class="filter-item">
-                <span>筛选</span>
+                <span>标签</span>
+                <ChevronDownIcon />
+            </div>
+            <div class="filter-item">
+                <span>评分</span>
+                <ChevronDownIcon />
+            </div>
+            <div class="filter-item">
+                <span>链接</span>
+                <ChevronDownIcon />
+            </div>
+            <div class="filter-item">
+                <span>备注</span>
+                <ChevronDownIcon />
+            </div>
+            <div class="filter-item">
+                <span>创建时间</span>
+                <ChevronDownIcon />
+            </div>
+            <div class="filter-item">
+                <ArrowsUpDownIcon />
+                <span>排序方式</span>
                 <ChevronDownIcon />
             </div>
         </div>
@@ -22,6 +44,13 @@ import { ChevronDownIcon } from '@heroicons/vue/24/solid';
 </template>
 
 <style scoped>
+.color-wheel {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: conic-gradient(var(--theme-color), aqua, lime, yellow, magenta, var(--theme-color));
+}
+
 .filter-list {
     display: flex;
     gap: 0.5rem;
@@ -32,9 +61,9 @@ import { ChevronDownIcon } from '@heroicons/vue/24/solid';
     display: flex;
     align-items: center;
     font-size: 0.85rem;
-    gap: 0.2rem;
+    gap: 0.3rem;
     padding: 0.2rem 0.5rem;
-    border-radius: 6px;
+    border-radius: var(--borderRadius-m);
 }
 
 .filter-item:hover,
@@ -45,6 +74,6 @@ import { ChevronDownIcon } from '@heroicons/vue/24/solid';
 .filter-item>svg {
     width: 0.9rem;
     height: 0.9rem;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 </style>
