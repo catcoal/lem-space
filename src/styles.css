@@ -29,8 +29,8 @@ html {
 }
 
 :root {
-  --theme-color: rgba(84, 183, 129, 1);
-  --theme-color-tiny: rgba(84, 183, 129, 0.1);
+  --theme-color: rgba(33, 139, 255, 1);
+  --theme-color-tiny: rgba(33, 139, 255, 0.1);
 
   --error-color: var(--color-scale-coral-6);
 }
