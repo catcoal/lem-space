@@ -6,15 +6,23 @@ defineProps<{
 </script>
 
 <template>
-    <Image :preview="false" width="100%" height="100%" :src="'https://source.unsplash.com/random.webp?' + resource">
-        <template #placeholder>
-            <div class="placeholder-cover"></div>
-        </template>
-    </Image>
+    <div class="image-cover">
+        <Image :preview="false" width="100%" height="100%" :src="'https://source.unsplash.com/random.webp?' + resource">
+            <template #placeholder>
+                <div class="placeholder-cover"></div>
+            </template>
+        </Image>
+    </div>
 </template>
 
-<style>
-.ant-image .ant-image-img {
+<style scoped>
+.image-cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+:deep(.ant-image>.ant-image-img) {
     position: absolute;
     width: auto !important;
     height: auto !important;
@@ -34,5 +42,7 @@ defineProps<{
     bottom: 0;
     right: 0;
     background-color: var(--color-bg-inset);
+    border-radius: var(--borderRadius-m);
+    overflow: hidden;
 }
 </style>
