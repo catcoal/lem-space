@@ -28,12 +28,15 @@ import Resource from "./components/Resource/index.vue";
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--color-bg-default);
     gap: 0.5rem;
-    padding: 1rem;
 }
 
 .body-wrap {
+    position: relative;
     height: 100%;
+    width: 100%;
     padding-top: 6rem;
+    overflow: hidden;
 }
 </style>
