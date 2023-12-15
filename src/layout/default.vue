@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Menu from "./components/Menu/index.vue";
 import ResizeHandle from "./components/ResizeHandle.vue";
+import Metadata from "./components/Metadata/index.vue"
 
 </script>
 
@@ -14,6 +15,7 @@ import ResizeHandle from "./components/ResizeHandle.vue";
             <RouterView></RouterView>
         </main>
         <aside class="aside-right">
+            <Metadata></Metadata>
             <ResizeHandle class="left"></ResizeHandle>
         </aside>
     </div>
@@ -44,6 +46,7 @@ aside {
 
 .aside-right {
     border-left-width: 1px;
+    overflow: auto;
 }
 
 main {
