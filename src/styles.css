@@ -18,6 +18,7 @@ html {
   --color-border-default: #dee2e6;
 
   --color-font-default: #1f2023;
+  --color-font-default-invert: #f8f9fa;
 }
 
 [data-color-mode="dark"] {
@@ -26,6 +27,7 @@ html {
   --color-border-default: #303236;
 
   --color-font-default: #f8f9fa;
+  --color-font-default-invert: #1f2023;
 }
 
 :root {
