@@ -24,7 +24,7 @@ const handleContextMenu = ({ item }: MenuInfo) => {
 </script>
 
 <template>
-    <Dropdown :trigger="trigger">
+    <Dropdown destroy-popup-on-hide :trigger="trigger">
         <div class="title-container">
             <slot name="default"></slot>
         </div>

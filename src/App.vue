@@ -8,6 +8,8 @@ import { ThemeConfig } from "ant-design-vue/es/config-provider/context";
 const AntTheme: ThemeConfig = {
   // algorithm: theme.defaultAlgorithm,
   token: {
+    colorBgBase: GetCssRootVar('--color-bg-inset'),
+    colorBgSpotlight: GetCssRootVar('--color-bg-inset'),
     colorPrimaryBg: GetCssRootVar('--color-border-default'),
     colorBgContainer: GetCssRootVar('--color-bg-inset'),
     colorBorder: GetCssRootVar('--color-border-default'),

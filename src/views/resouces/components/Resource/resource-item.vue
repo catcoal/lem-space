@@ -1,21 +1,32 @@
 <script setup lang="ts">
+import Context from "@/components/Context/index.vue";
 import Cover from "@/components/Cover/index.vue";
+import { ref } from "vue";
 
-defineProps<{
+const props = defineProps<{
     resource: any
 }>()
+
+const selectedResource = ref<number>();
+
+const select = () => {
+    selectedResource.value = props.resource;
+}
+
 </script>
 
 <template>
-    <div class="resource-item">
-        <div class="cover-wrap">
-            <Cover :resource="resource"></Cover>
+    <Context type="File" trigger="contextmenu">
+        <div class="resource-item" :class="{ 'selected': selectedResource }" @click="select">
+            <div class="cover-wrap">
+                <Cover :resource="resource"></Cover>
+            </div>
+            <div class="info-wrap">
+                <p>名称{{ resource }}</p>
+                <span>200x300</span>
+            </div>
         </div>
-        <div class="info-wrap">
-            <p>名称{{ resource }}</p>
-            <span>200x300</span>
-        </div>
-    </div>
+    </Context>
 </template>
 
 <style scoped>
@@ -30,19 +41,17 @@ defineProps<{
 }
 
 .resource-item.selected>.info-wrap>p {
-    background-color: var(--theme-color-tiny);
+    color: #f8f9fa;
+    background-color: var(--theme-color);
 }
 
 .cover-wrap {
     position: relative;
-    height: 0;
-    width: 100%;
-    padding-top: 100%;
     margin-bottom: 0.2rem;
     border-width: 2px;
     border-color: transparent;
     border-style: solid;
-    border-radius: var(--borderRadius-m);
+    border-radius: var(--borderRadius-l);
     overflow: hidden;
 }
 
@@ -56,7 +65,7 @@ defineProps<{
     display: inline;
     padding: 0.15rem 0.5rem;
     border-radius: var(--borderRadius-m);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     line-height: 0.8rem;
 }
 
