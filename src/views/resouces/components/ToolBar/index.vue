@@ -2,6 +2,7 @@
 import Search from "./search.vue";
 import NavigateBar from './navigate-bar.vue';
 import Breadcrumb from "./breadcrumb.vue"
+import SizeSlider from "./size-slider.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Breadcrumb from "./breadcrumb.vue"
         <div class="tool-wrap">
             <NavigateBar></NavigateBar>
             <Breadcrumb></Breadcrumb>
+            <SizeSlider></SizeSlider>
         </div>
         <div class="tool-wrap">
             <Search></Search>
