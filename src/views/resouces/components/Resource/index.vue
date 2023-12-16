@@ -2,9 +2,13 @@
 import SelectionArea from "@/components/SelectionArea/index.vue";
 import ResourceItem from "./resource-item.vue";
 import { GetRandomImages } from "@/services/test";
-import { onMounted, ref } from "vue";
-const resources = ref();
+import { computed, onMounted, ref } from "vue";
+import { useResourceStore } from "@/stores/resource";
 
+const ResourceStore = useResourceStore();
+const displayRowNumber = computed(() => ResourceStore.displayRowNumber);
+
+const resources = ref();
 onMounted(() => {
     GetRandomImages().then((res) => {
         resources.value = res
@@ -29,7 +33,7 @@ onMounted(() => {
 .resource-list {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(v-bind(displayRowNumber), 1fr);
     align-content: flex-start;
     gap: 1rem;
     flex-wrap: wrap;

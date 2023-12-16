@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import Context from "@/components/Context/index.vue";
 import Cover from "@/components/Cover/index.vue";
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useResourceStore, DisplayLayoutType } from "@/stores/resource";
+
+const ResourceStore = useResourceStore();
+const displayLayoutType = computed(() => ResourceStore.displayLayoutType);
+const displayRowNumber = computed(() => ResourceStore.displayRowNumber);
+const coverLayoutType = computed<DisplayLayoutType>(() => displayRowNumber.value <= 1 ? 'grid' : displayLayoutType.value);
 
 const props = defineProps<{
     resource: any
 }>()
-
 const selectedResource = ref<number>();
-
 const select = () => {
     selectedResource.value = props.resource;
 }
@@ -19,7 +23,7 @@ const select = () => {
     <Context type="File" trigger="contextmenu">
         <div class="resource-item" :class="{ 'selected': selectedResource }" @click="select">
             <div class="cover-wrap">
-                <Cover :resource="resource"></Cover>
+                <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
             </div>
             <div class="info-wrap">
                 <p>名称{{ resource }}</p>
@@ -28,12 +32,6 @@ const select = () => {
         </div>
     </Context>
 </template>
-
-<style>
-.dropdown-container.ant-dropdown-trigger {
-    height: 100%;
-}
-</style>
 
 <style scoped>
 .resource-item {
