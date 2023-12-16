@@ -13,9 +13,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <SelectionArea class="resource-selection-area">
+    <SelectionArea @update:selected="(e) => console.log(e)" selection-el=".resource-item" class="resource-selection-area">
         <div class="resource-list">
-            <ResourceItem @click.stop :resource="item" v-for="item in 100" :key="item"></ResourceItem>
+            <ResourceItem @mousedown.left.stop :resource="item" v-for="item in 20" :key="item">
+            </ResourceItem>
         </div>
     </SelectionArea>
 </template>
@@ -28,7 +29,8 @@ onMounted(() => {
 .resource-list {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    align-content: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
     overflow-y: auto;

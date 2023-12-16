@@ -25,7 +25,7 @@ const handleContextMenu = ({ item }: MenuInfo) => {
 
 <template>
     <Dropdown destroy-popup-on-hide :trigger="trigger">
-        <div class="title-container">
+        <div class="dropdown-container">
             <slot name="default"></slot>
         </div>
         <template #overlay>

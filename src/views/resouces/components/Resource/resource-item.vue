@@ -29,6 +29,12 @@ const select = () => {
     </Context>
 </template>
 
+<style>
+.dropdown-container.ant-dropdown-trigger {
+    height: 100%;
+}
+</style>
+
 <style scoped>
 .resource-item {
     cursor: pointer;
