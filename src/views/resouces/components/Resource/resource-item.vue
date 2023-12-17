@@ -2,11 +2,11 @@
 import Context from "@/components/Context/index.vue";
 import Cover from "@/components/Cover/index.vue";
 import { computed, ref } from "vue";
-import { useResourceStore, DisplayLayoutType } from "@/stores/resource";
+import { useResourceViewStore, DisplayLayoutType } from "@/stores/resourceView";
 
-const ResourceStore = useResourceStore();
-const displayLayoutType = computed(() => ResourceStore.displayLayoutType);
-const displayRowNumber = computed(() => ResourceStore.displayRowNumber);
+const ResourceViewStore = useResourceViewStore();
+const displayLayoutType = computed(() => ResourceViewStore.displayLayoutType);
+const displayRowNumber = computed(() => ResourceViewStore.displayRowNumber);
 const coverLayoutType = computed<DisplayLayoutType>(() => displayRowNumber.value <= 1 ? 'waterfall' : displayLayoutType.value);
 
 const props = defineProps<{

@@ -3,10 +3,10 @@ import SelectionArea from "@/components/SelectionArea/index.vue";
 import ResourceItem from "./resource-item.vue";
 import { GetRandomImages } from "@/services/test";
 import { computed, onMounted, ref } from "vue";
-import { useResourceStore } from "@/stores/resource";
+import { useResourceViewStore } from "@/stores/resourceView";
 
-const ResourceStore = useResourceStore();
-const displayRowNumber = computed(() => ResourceStore.displayRowNumber);
+const ResourceViewStore = useResourceViewStore();
+const displayRowNumber = computed(() => ResourceViewStore.displayRowNumber);
 
 const resources = ref();
 onMounted(() => {

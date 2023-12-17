@@ -23,7 +23,7 @@ const layoutAsideRightWidth = computed(() => LayoutStore.layoutAsideRightWidth);
         </main>
         <aside :style="'min-width: ' + layoutAsideRightWidth + 'px'" class="aside-right">
             <Metadata></Metadata>
-            <ResizeHandle :position="'left'"></ResizeHandle>
+            <ResizeHandle :min="250" :max="400" :position="'left'"></ResizeHandle>
         </aside>
     </div>
 </template>
