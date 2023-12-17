@@ -7,7 +7,7 @@ import { useResourceStore, DisplayLayoutType } from "@/stores/resource";
 const ResourceStore = useResourceStore();
 const displayLayoutType = computed(() => ResourceStore.displayLayoutType);
 const displayRowNumber = computed(() => ResourceStore.displayRowNumber);
-const coverLayoutType = computed<DisplayLayoutType>(() => displayRowNumber.value <= 1 ? 'grid' : displayLayoutType.value);
+const coverLayoutType = computed<DisplayLayoutType>(() => displayRowNumber.value <= 1 ? 'waterfall' : displayLayoutType.value);
 
 const props = defineProps<{
     resource: any
