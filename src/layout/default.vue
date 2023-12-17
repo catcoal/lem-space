@@ -2,21 +2,28 @@
 import Menu from "./components/Menu/index.vue";
 import ResizeHandle from "./components/ResizeHandle.vue";
 import Metadata from "./components/Metadata/index.vue"
+import { useLayoutStore } from "@/stores/layout";
+import { computed } from "vue";
+
+const LayoutStore = useLayoutStore();
+
+const layoutAsideLeftWidth = computed(() => LayoutStore.layoutAsideLeftWidth);
+const layoutAsideRightWidth = computed(() => LayoutStore.layoutAsideRightWidth);
 
 </script>
 
 <template>
     <div class="default-layout">
-        <aside class="aside-left">
+        <aside :style="'min-width: ' + layoutAsideLeftWidth + 'px'" class="aside-left">
             <Menu></Menu>
-            <ResizeHandle class="right"></ResizeHandle>
+            <ResizeHandle :min="200" :max="400" :position="'right'"></ResizeHandle>
         </aside>
         <main>
             <RouterView></RouterView>
         </main>
-        <aside class="aside-right">
+        <aside :style="'min-width: ' + layoutAsideRightWidth + 'px'" class="aside-right">
             <Metadata></Metadata>
-            <ResizeHandle class="left"></ResizeHandle>
+            <ResizeHandle :position="'left'"></ResizeHandle>
         </aside>
     </div>
 </template>
@@ -31,9 +38,7 @@ import Metadata from "./components/Metadata/index.vue"
 
 aside {
     position: relative;
-    width: 100%;
     min-width: 250px;
-    max-width: 250px;
     background-color: var(--color-bg-inset);
     border-color: var(--color-border-default);
     border-style: solid;

@@ -1,12 +1,63 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useLayoutStore } from "@/stores/layout"
 
+const LayoutStore = useLayoutStore();
+
+const props = withDefaults(defineProps<{
+    position: 'left' | 'right',
+    min?: number, // 最小宽度
+    max?: number // 最大宽度
+}>(), {
+    min: 200,
+    max: 250
+});
+
+const resizing = ref(false); // 拖拽中
+const initialWidth = ref(0); // 初始大小
+const initialX = ref(0); // 初始位置
+
+const handleMouseDown = (event: MouseEvent) => {
+    let target = event.currentTarget as HTMLElement;
+    resizing.value = true;
+    initialX.value = event.clientX;
+    initialWidth.value = target.parentElement?.offsetWidth!;
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+};
+
+const handleMouseMove = (event: MouseEvent) => {
+    if (!resizing.value) return;
+    event.preventDefault();
+
+    const deltaX = event.clientX - initialX.value;
+    let newWidth = props.position === 'left' ? initialWidth.value - deltaX : initialWidth.value + deltaX;
+    newWidth = Math.max(props.min, Math.min(props.max, newWidth)); // 限制宽度在最小值和最大值之间
+
+    if (props.position === 'left') {
+        LayoutStore.$patch({
+            layoutAsideRightWidth: newWidth
+        })
+    } else {
+        LayoutStore.$patch({
+            layoutAsideLeftWidth: newWidth
+        })
+    }
+};
+
+const handleMouseUp = () => {
+    resizing.value = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+};
 </script>
 
 <template>
-    <div class="resize-handle">
+    <div @mousedown="handleMouseDown" class="resize-handle" :class="[position, { 'resizing': resizing }]">
         <span class="resize-line"></span>
     </div>
 </template>
+
 
 <style scoped>
 .resize-handle {
@@ -17,7 +68,8 @@
     width: 5px;
 }
 
-.resize-handle:hover>.resize-line {
+.resize-handle:hover>.resize-line,
+.resize-handle.resizing>.resize-line {
     opacity: 1;
 }
 
