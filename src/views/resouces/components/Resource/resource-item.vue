@@ -45,7 +45,7 @@ const select = () => {
 }
 
 .resource-item.selected>.info-wrap>p {
-    color: #f8f9fa;
+    color: #ddf4ff;
     background-color: var(--theme-color);
 }
 

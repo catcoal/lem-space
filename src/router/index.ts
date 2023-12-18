@@ -5,12 +5,12 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     name: "home",
     redirect: "/resource",
-    component: import("@/layout/default.vue"),
+    component: () => import("@/layout/default.vue"),
     children: [
       {
         path: "/resource",
         name: "resource",
-        component: import("@/views/resouces/index.vue"),
+        component: () => import("@/views/resouces/index.vue"),
       },
     ],
   },
