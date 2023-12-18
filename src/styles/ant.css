@@ -1,4 +1,4 @@
-/* tooltip/popover样式表 */
+/* tooltip/popover */
 .ant-tooltip-content > .ant-tooltip-arrow,
 .ant-popover-content > .ant-popover-arrow {
   display: none;
@@ -18,4 +18,18 @@
 .ant-popover-content > .ant-popover-inner {
   padding: 8px;
   border: 1px solid var(--color-border-default);
+}
+
+/* modal */
+.ant-modal .ant-modal-content {
+  border: 1px solid var(--color-border-default);
+}
+
+/* setting-modal */
+.setting-modal > .ant-modal-content {
+  padding: 0;
+}
+
+.setting-modal .ant-modal-confirm-content {
+  width: 100%;
 }

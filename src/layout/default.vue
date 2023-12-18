@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppMenu from "./components/AppMenu/index.vue";
 import Menu from "./components/Menu/index.vue";
 import ResizeHandle from "./components/ResizeHandle.vue";
 import Metadata from "./components/Metadata/index.vue"
@@ -15,6 +16,7 @@ const layoutAsideRightWidth = computed(() => LayoutStore.layoutAsideRightWidth);
 <template>
     <div class="default-layout">
         <aside :style="'min-width: ' + layoutAsideLeftWidth + 'px'" class="aside-left">
+            <AppMenu></AppMenu>
             <Menu></Menu>
             <ResizeHandle :min="200" :max="400" :position="'right'"></ResizeHandle>
         </aside>
