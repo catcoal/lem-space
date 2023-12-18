@@ -32,6 +32,7 @@ html {
 
 :root {
   --theme-color: rgba(33, 139, 255, 1);
+  --theme-color-medium: rgba(33, 139, 255, 0.5);
   --theme-color-tiny: rgba(33, 139, 255, 0.1);
 
   --error-color: var(--color-scale-coral-6);

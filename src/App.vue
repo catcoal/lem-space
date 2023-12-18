@@ -1,29 +1,19 @@
 <script setup lang="ts">
-import { GetCssRootVar } from "@/utils/utils";
 import { ConfigProvider } from "ant-design-vue";
-import { ThemeConfig } from "ant-design-vue/es/config-provider/context";
+import { useAppStore } from "@/stores/app";
+import { computed, onBeforeMount } from "vue";
+const AppStore = useAppStore();
+const antThemeConfig = computed(() => AppStore.antThemeConfig);
 
-
-
-const AntTheme: ThemeConfig = {
-  // algorithm: theme.defaultAlgorithm,
-  token: {
-    colorBgBase: GetCssRootVar('--color-bg-inset'),
-    colorBgSpotlight: GetCssRootVar('--color-bg-inset'),
-    colorPrimaryBg: GetCssRootVar('--color-border-default'),
-    colorBgContainer: GetCssRootVar('--color-bg-inset'),
-    colorBorder: GetCssRootVar('--color-border-default'),
-    colorBorderSecondary: GetCssRootVar('--color-border-default'),
-    colorBgTextHover: GetCssRootVar('--color-bg-inset'),
-    colorTextBase: GetCssRootVar('--color-font-default'),
-    colorPrimary: GetCssRootVar('--theme-color')
-  }
-}
+onBeforeMount(() => {
+  // 初始化主题
+  AppStore.InitTheme();
+})
 </script>
 
 <template>
   <div id="root" @click.right.prevent>
-    <ConfigProvider :theme="AntTheme">
+    <ConfigProvider :theme="antThemeConfig">
       <RouterView></RouterView>
     </ConfigProvider>
   </div>
