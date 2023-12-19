@@ -25,6 +25,9 @@ export const menus: Menu[] = [
     name: "about",
     title: "关于",
     icon: h(ExclamationCircleIcon),
+    component: defineAsyncComponent(
+      () => import("@/views/settings/about/index.vue")
+    ),
   },
   {
     name: "developer",

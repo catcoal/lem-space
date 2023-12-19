@@ -60,15 +60,18 @@ header {
 }
 
 .container {
+    width: 100%;
     display: flex;
 }
 
 aside {
     padding: 0.5rem;
+    min-width: 150px;
     border-right: 1px solid var(--color-border-default);
 }
 
 main {
+    width: 100%;
     padding: 1rem;
     min-height: 400px;
 }
