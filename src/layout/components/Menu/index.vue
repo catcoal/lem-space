@@ -12,13 +12,22 @@ import Shortcuts from "./shortcuts.vue";
 </template>
 
 <style scoped>
+:deep(.ant-tree .ant-tree-treenode) {
+    padding: 0.1rem 0;
+}
+
 :deep(.ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected) {
     background-color: var(--theme-color-tiny);
+    box-shadow: inset 0 0 0 1px var(--theme-color-medium);
 }
 
 :deep(.menu-tree) {
     background-color: transparent;
     color: var(--color-font-default);
+}
+
+:deep(.ant-tree-switcher) {
+    opacity: 0.3;
 }
 
 .menu-wrap {

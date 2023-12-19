@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import Context from "@/components/Context/index.vue"
 import { Tree, TreeProps } from 'ant-design-vue';
-import { FolderOutlined, MoreOutlined } from "@ant-design/icons-vue"
+import { FolderIcon, FolderOpenIcon, EllipsisHorizontalIcon } from "@heroicons/vue/24/outline";
 import { ref } from 'vue';
 
 const selectedKeys = ref<number[]>([]);
 const menuData: TreeProps['treeData'] = [
     {
         title: '文件夹',
-        key: 3,
+        key: 31,
         children: [
-            { title: '子文件夹', key: 4 },
-            { title: '子文件夹', key: 5 },
+            { title: '子文件夹子文件夹子文件夹', key: 41 },
+            { title: '子文件夹', key: 51 },
         ],
     },
     {
         title: '文件夹',
-        key: 6,
+        key: 61,
         children: [
-            { title: '子文件夹', key: 7 },
-            { title: '子文件夹', key: 8 },
+            { title: '子文件夹', key: 71 },
+            { title: '子文件夹', key: 81 },
         ],
     },
 ]
@@ -28,16 +28,17 @@ const menuData: TreeProps['treeData'] = [
 
 <template>
     <Tree v-model:selected-keys="selectedKeys" class="menu-tree" draggable block-node show-icon :tree-data="menuData">
-        <template #icon>
-        </template>
-        <template #title="{ key, title }">
+        <template #title="{ key, title, expanded }">
             <Context trigger="contextmenu" :type="'Folder'" :data="key">
                 <div class="title-container">
-                    <FolderOutlined />
+                    <span class="icon">
+                        <FolderIcon v-show="!expanded" />
+                        <FolderOpenIcon v-show="expanded" />
+                    </span>
                     <span class="title">{{ title }}</span>
                     <Context trigger="click" :type="'Folder'" :data="key">
                         <div class="more">
-                            <MoreOutlined />
+                            <EllipsisHorizontalIcon />
                         </div>
                     </Context>
                 </div>
@@ -50,9 +51,12 @@ const menuData: TreeProps['treeData'] = [
 .title-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.3rem;
     width: 100%;
-    padding: 0 0 0 0.3rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08rem;
+    padding: 0.1rem 0.3rem;
 }
 
 .title-container:hover .more {
@@ -60,8 +64,18 @@ const menuData: TreeProps['treeData'] = [
 }
 
 .title-container>.title {
-    display: flex;
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.title-container>.icon {
+    width: 1.1rem;
+    min-width: 1.1rem;
+    height: 1.1rem;
 }
 
 .more {
@@ -69,6 +83,7 @@ const menuData: TreeProps['treeData'] = [
     width: 1.2rem;
     min-width: 1.2rem;
     height: 1.2rem;
+    padding: 0.1rem;
     background-color: transparent;
     display: flex;
     align-items: center;
