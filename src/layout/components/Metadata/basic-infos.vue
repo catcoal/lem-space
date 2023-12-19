@@ -1,12 +1,13 @@
 <script setup lang="ts">
-
+import { Rate } from 'ant-design-vue';
 </script>
 
 <template>
     <div class="basic-info">
         <div class="basic-info-item">
             <label>评分</label>
-            <span>0</span>
+            <!-- <span>0</span> -->
+            <Rate></Rate>
         </div>
         <div class="basic-info-item">
             <label>尺寸</label>
@@ -43,5 +44,9 @@
 
 .basic-info-item>label {
     opacity: 0.4;
+}
+
+.ant-rate {
+    font-size: 0.8rem;
 }
 </style>

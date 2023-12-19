@@ -26,7 +26,7 @@ const select = () => {
                 <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
             </div>
             <div class="info-wrap">
-                <p>名称{{ resource }}</p>
+                <p>名称名称名称名称{{ resource }}</p>
                 <span>200x300</span>
             </div>
         </div>
@@ -67,10 +67,15 @@ const select = () => {
 .info-wrap>p {
     align-self: center;
     display: inline;
-    padding: 0.15rem 0.5rem;
+    padding: 0.1rem 0.5rem;
     border-radius: var(--borderRadius-m);
     font-size: 0.7rem;
-    line-height: 0.8rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .info-wrap>span {
