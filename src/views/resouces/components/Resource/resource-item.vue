@@ -17,11 +17,15 @@ const select = () => {
     selectedResource.value = props.resource;
 }
 
+const preview = () => {
+    ResourceViewStore.showPreview('image');
+}
+
 </script>
 
 <template>
     <Context type="File" trigger="contextmenu">
-        <div class="resource-item" :class="{ 'selected': selectedResource }" @click="select">
+        <div @click="select" @dblclick="preview()" class="resource-item" :class="{ 'selected': selectedResource }">
             <div class="cover-wrap">
                 <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
             </div>

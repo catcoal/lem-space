@@ -10,12 +10,14 @@ const LayoutStore = useLayoutStore();
 
 const layoutAsideLeftWidth = computed(() => LayoutStore.layoutAsideLeftWidth);
 const layoutAsideRightWidth = computed(() => LayoutStore.layoutAsideRightWidth);
+const layoutAsideRightVisible = computed(() => LayoutStore.layoutAsideRightVisible);
+const layoutAsideLeftVisible = computed(() => LayoutStore.layoutAsideLeftVisible);
 
 </script>
 
 <template>
     <div class="default-layout">
-        <aside :style="'min-width: ' + layoutAsideLeftWidth + 'px'" class="aside-left">
+        <aside v-if="layoutAsideLeftVisible" :style="'min-width: ' + layoutAsideLeftWidth + 'px'" class="aside-left">
             <AppMenu></AppMenu>
             <Menu></Menu>
             <ResizeHandle :min="200" :max="400" :position="'right'"></ResizeHandle>
@@ -23,7 +25,7 @@ const layoutAsideRightWidth = computed(() => LayoutStore.layoutAsideRightWidth);
         <main>
             <RouterView></RouterView>
         </main>
-        <aside :style="'min-width: ' + layoutAsideRightWidth + 'px'" class="aside-right">
+        <aside v-if="layoutAsideRightVisible" :style="'min-width: ' + layoutAsideRightWidth + 'px'" class="aside-right">
             <Metadata></Metadata>
             <ResizeHandle :min="250" :max="400" :position="'left'"></ResizeHandle>
         </aside>

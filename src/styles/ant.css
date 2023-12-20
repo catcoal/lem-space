@@ -13,6 +13,8 @@
   min-height: 26px;
   padding: 2px 8px;
   border: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-inset);
+  color: var(--color-font-default);
 }
 
 .ant-popover-content > .ant-popover-inner {
@@ -32,4 +34,29 @@
 
 .setting-modal .ant-modal-confirm-content {
   width: 100%;
+}
+
+/* preview-modal */
+.preview-modal {
+  max-width: 100%;
+  top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+.preview-modal > .ant-modal-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh);
+}
+
+.preview-modal .ant-modal-confirm-content {
+  width: 100%;
+}
+
+.preview-modal.ant-modal-confirm
+  .ant-modal-confirm-body
+  .ant-modal-confirm-title
+  + .ant-modal-confirm-content {
+  margin-block-start: 0;
 }

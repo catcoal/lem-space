@@ -10,7 +10,7 @@ function InitAntTheme(): ThemeConfig {
   return {
     token: {
       colorBgBase: GetCssRootVar("--color-bg-inset"),
-      colorBgSpotlight: GetCssRootVar("--color-bg-inset"),
+      // colorBgSpotlight: GetCssRootVar("--color-bg-inset"), // tooltip
       colorPrimaryBg: GetCssRootVar("--color-border-default"),
       colorBgContainer: GetCssRootVar("--color-bg-inset"),
       colorBorder: GetCssRootVar("--color-border-default"),

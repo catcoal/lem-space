@@ -12,6 +12,19 @@ export const useResourceViewStore = defineStore("resourceView", () => {
   ); // 最大每行资源数量（按布局中间大小算）
   const displayRowNumber = ref(Math.round(displayMaxRowNumber.value / 2)); // 每行资源数量显示（默认为最大值的一半）
   const displayLayoutType = ref<DisplayLayoutType>("grid"); // 资源布局方式
+  const isPreview = ref(false);
+  const previewType = ref<PreviewType>("image");
+
+  // 预览
+  const showPreview = (type: PreviewType) => {
+    previewType.value = type;
+    isPreview.value = true;
+  };
+
+  // 关闭预览
+  const hidePreview = () => {
+    isPreview.value = false;
+  };
 
   watch(
     () => displayMaxRowNumber.value,
@@ -27,5 +40,9 @@ export const useResourceViewStore = defineStore("resourceView", () => {
     displayRowNumber,
     displayMaxRowNumber,
     displayLayoutType,
+    isPreview,
+    previewType,
+    showPreview,
+    hidePreview,
   };
 });
