@@ -78,6 +78,10 @@ import Cover from "@/components/Cover/index.vue";
     gap: 1rem;
 }
 
+.cover-wrap {
+    user-select: none;
+}
+
 .field-wrap {
     display: flex;
     flex-direction: column;

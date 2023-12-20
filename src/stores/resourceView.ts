@@ -24,6 +24,7 @@ export const useResourceViewStore = defineStore("resourceView", () => {
   // 关闭预览
   const hidePreview = () => {
     isPreview.value = false;
+    LayoutStore.ShowAside();
   };
 
   watch(

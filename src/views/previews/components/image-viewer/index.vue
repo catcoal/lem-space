@@ -25,7 +25,9 @@ onMounted(() => {
         toolbar: false,
         inline: true,
         loading: true,
-        backdrop: false
+        backdrop: false,
+        maxZoomRatio: 8,
+        minZoomRatio: 0.1
     });
 })
 
