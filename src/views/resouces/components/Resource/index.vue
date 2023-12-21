@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SelectionArea from "@/components/SelectionArea/index.vue";
 import ResourceItem from "./resource-item.vue";
+// import TanstackVirtual from "./tanstack-virtual.vue"
 import { GetRandomImages } from "@/services/test";
 import { computed, onMounted, ref } from "vue";
 import { useResourceViewStore } from "@/stores/resourceView";
@@ -14,6 +15,8 @@ onMounted(() => {
         resources.value = res
     })
 })
+
+
 </script>
 
 <template>
@@ -22,6 +25,7 @@ onMounted(() => {
             <ResourceItem @mousedown.left.stop :resource="item" v-for="item in 20" :key="item">
             </ResourceItem>
         </div>
+        <!-- <TanstackVirtual></TanstackVirtual> -->
     </SelectionArea>
 </template>
 
