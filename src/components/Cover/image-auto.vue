@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { Image } from "ant-design-vue"
 defineProps<{
-    resource: any
+    resource: Resource
 }>()
 </script>
 
 <template>
     <div class="image-cover">
-        <Image :preview="false" width="100%" height="100%" :src="'https://source.unsplash.com/random.webp?' + resource">
+        <Image :preview="false" width="100%" height="100%" :src="resource.download_url">
             <template #placeholder>
                 <div class="placeholder-cover"></div>
             </template>

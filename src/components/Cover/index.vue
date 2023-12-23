@@ -3,7 +3,7 @@ import ImageCoverGrid from "./image-grid.vue"
 import ImageCoverAuto from "./image-auto.vue"
 
 withDefaults(defineProps<{
-    resource: any,
+    resource: Resource,
     layoutType: 'grid' | 'waterfall'
 }>(), {
     layoutType: 'grid'

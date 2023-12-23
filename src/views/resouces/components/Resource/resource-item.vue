@@ -10,9 +10,9 @@ const displayRowNumber = computed(() => ResourceViewStore.displayRowNumber);
 const coverLayoutType = computed<DisplayLayoutType>(() => displayRowNumber.value <= 1 ? 'waterfall' : displayLayoutType.value);
 
 const props = defineProps<{
-    resource: any
+    resource: Resource
 }>()
-const selectedResource = ref<number>();
+const selectedResource = ref<Resource>();
 const select = () => {
     selectedResource.value = props.resource;
 }
@@ -30,7 +30,7 @@ const preview = () => {
                 <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
             </div>
             <div class="info-wrap">
-                <p>名称名称名称名称{{ resource }}</p>
+                <p>{{ resource.author }}</p>
                 <span>200x300</span>
             </div>
         </div>
