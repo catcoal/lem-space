@@ -30,7 +30,7 @@ const preview = () => {
                 <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
             </div>
             <div class="info-wrap">
-                <p>{{ resource.author }}</p>
+                <p>{{ resource.id }}-{{ resource.author }}</p>
                 <span>200x300</span>
             </div>
         </div>

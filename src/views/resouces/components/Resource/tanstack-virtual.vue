@@ -1,64 +1,55 @@
-<template>
-    <div>
-        <div ref="parentRef" class="List" style="height: 400px; width: 400px; overflow-y: auto; contain: strict;">
-            <div :style="{
-                height: `${totalSize}px`,
-                width: '100%',
-                position: 'relative',
-            }">
-                <div :style="{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    transform: `translateY(${virtualRows[0]?.start ?? 0}px)`,
-                }">
-                    <div v-for="virtualRow in virtualRows" :key="virtualRow.key" :data-index="virtualRow.index"
-                        :ref="measureElement" :class="virtualRow.index % 2 ? 'ListItemOdd' : 'ListItemEven'">
-                        <div style="padding: 10px 0">
-                            <div>Row {{ virtualRow.index }}</div>
-                            <!-- <div>{{ sentences[virtualRow.index] }}</div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-  
+<!-- 文档 https://tanstack.com/virtual/v3/docs/api/virtualizer -->
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useVirtualizer } from '@tanstack/vue-virtual'
-const items = () => {
-    let items = [];
-    for (let i = 0; i < 2000; i++) {
-        items.push(i)
-    };
-    return items
-}
+import { computed } from 'vue'
+import { VirtualizerOptions, useVirtualizer } from '@tanstack/vue-virtual'
+import ResourceItem from "./resource-item.vue";
 
-let sentences = items();
+const props = defineProps<{
+    resources: Resource[];
+    parentRef: HTMLElement
+}>()
 
-const parentRef = ref<HTMLElement | null>(null)
-
-const rowVirtualizer = useVirtualizer({
-    count: sentences.length,
-    getScrollElement: () => parentRef.value,
-    estimateSize: () => 55,
+const VirtualizerOptions = computed(() => {
+    return {
+        count: props.resources?.length, // 总数
+        getScrollElement: () => props.parentRef, // 滚动节点
+        estimateSize: () => 200, // 资源高大小
+        overscan: 2, // 前后的预加载数据
+    }
 })
+
+const rowVirtualizer = useVirtualizer(VirtualizerOptions);
 
 const virtualRows = computed(() => rowVirtualizer.value.getVirtualItems())
 
 const totalSize = computed(() => rowVirtualizer.value.getTotalSize())
 
+// 动态调整大小
 const measureElement = (el: any) => {
-    if (!el) {
-        return
-    }
-
+    if (!el) return;
     rowVirtualizer.value.measureElement(el)
-
     return undefined
 }
 </script>
+<template>
+    <div :style="{
+        height: `${totalSize}px`,
+        width: '100%',
+        position: 'relative',
+    }">
+        <div v-for="(virtualRow, index) in virtualRows" :ref="measureElement" :key="virtualRow.key"
+            :data-size="virtualRows[index]?.size" :data-index="virtualRow.index" :style="{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${(virtualRows[index]?.size * virtualRows[index]?.index)}px)`,
+            }">
+            <ResourceItem :resource="resources[virtualRow.index]"></ResourceItem>
+        </div>
+    </div>
+</template>
+
+<style scoped></style>
+
   
