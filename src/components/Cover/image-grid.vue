@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
     <div class="image-cover">
-        <Image :preview="false" width="100%" height="100%" :src="resource.download_url">
+        <Image :preview="false" width="100%" height="100%" :src="'https://source.unsplash.com/random.webp?' + resource.id">
             <template #placeholder>
                 <div class="placeholder-cover"></div>
             </template>

@@ -31,7 +31,7 @@ const preview = () => {
             </div>
             <div class="info-wrap">
                 <p>{{ resource.id }}-{{ resource.author }}</p>
-                <span>200x300</span>
+                <span>{{ resource.width }}x{{ resource.height }}</span>
             </div>
         </div>
     </Context>

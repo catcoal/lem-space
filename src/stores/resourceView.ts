@@ -15,13 +15,13 @@ export const useResourceViewStore = defineStore("resourceView", () => {
   const isPreview = ref(false);
   const previewType = ref<PreviewType>("image");
 
-  // 预览
+  // 显示资源预览
   const showPreview = (type: PreviewType) => {
     previewType.value = type;
     isPreview.value = true;
   };
 
-  // 关闭预览
+  // 关闭资源预览
   const hidePreview = () => {
     isPreview.value = false;
     LayoutStore.ShowAside();
