@@ -1,0 +1,10 @@
+.ant-dropdown > .ant-dropdown-menu > .ant-dropdown-menu-item {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+}
+
+.context-selected {
+  pointer-events: none;
+  background-color: var(--theme-color-tiny);
+  border: 1px solid var(--theme-color-medium);
+}
