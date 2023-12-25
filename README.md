@@ -29,6 +29,11 @@ tauri(vue3 + rust)
 
 <img src="./docs/dev-log/screenshot_2023_12_18.png" width="51%"/>
 
+```2023/12/20```
+- 新增素材预览(图片)
+
+<img src="./docs/dev-log/screenshot_2023_12_20.png" width="51%"/>
+
 ```2023/12/25```
 - 新增素材虚拟列表，以及数据瀑布流布局
 
