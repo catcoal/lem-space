@@ -3,13 +3,10 @@ import VirtualList from "./virtual-list.vue";
 import SelectionArea from "@/components/SelectionArea/index.vue";
 import Context from "@/components/Context/index.vue";
 import { GetRandomImages } from "@/services/test";
-import { computed, onMounted, ref } from "vue";
-import { useResourceViewStore } from "@/stores/resourceView";
-
-const ResourceViewStore = useResourceViewStore();
-const displayRowNumber = computed(() => ResourceViewStore.displayRowNumber);
+import { onMounted, ref } from "vue";
 
 const resources = ref();
+
 onMounted(() => {
     GetRandomImages().then((res) => {
         resources.value = res
@@ -37,15 +34,5 @@ onMounted(() => {
 
 .resource-selection-area {
     height: inherit;
-}
-
-.resource-list {
-    height: inherit;
-    display: grid;
-    grid-template-columns: repeat(v-bind(displayRowNumber), 1fr);
-    align-content: flex-start;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 1rem 1rem 4rem 1rem;
 }
 </style>

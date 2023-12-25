@@ -23,6 +23,8 @@ defineProps<{
 }
 
 :deep(.ant-image>.ant-image-img) {
+    -webkit-user-drag: none;
+    user-select: none;
     position: absolute;
     width: auto !important;
     height: auto !important;

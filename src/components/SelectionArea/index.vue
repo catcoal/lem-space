@@ -1,6 +1,5 @@
 <template>
-    <div ref="container" class="selection-container" @mousedown.left.exact="startSelection"
-        @mouseup.left.exact="endSelection">
+    <div ref="container" class="selection-container" @mousedown.left.exact="startSelection">
         <!-- 用户自定义内容的插槽 -->
         <slot></slot>
 
@@ -40,7 +39,6 @@ const selectionBoxStyle = computed(() => {
 const startSelection = (event: MouseEvent) => {
     if (!container.value) return;
     isSelecting.value = true;
-
     const rect = container.value.getBoundingClientRect();
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
@@ -126,12 +124,13 @@ onBeforeUnmount(() => {
     user-select: none;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     /* 防止拖动时选择文本 */
 }
 
 .selection-box {
+    pointer-events: none;
     position: absolute;
-    z-index: 0;
     border-radius: var(--boderRadius-s);
     border: 1px solid var(--theme-color);
     background-color: var(--theme-color-tiny);

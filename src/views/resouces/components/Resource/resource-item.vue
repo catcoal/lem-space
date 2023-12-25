@@ -25,7 +25,8 @@ const preview = () => {
 
 <template>
     <Context type="File" trigger="contextmenu">
-        <div @click="select" @dblclick="preview()" class="resource-item" :class="{ 'selected': selectedResource }">
+        <div @click.stop="select" @dblclick.stop="preview()" class="resource-item"
+            :class="{ 'selected': selectedResource }">
             <div class="cover-wrap">
                 <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
             </div>
@@ -74,7 +75,7 @@ const preview = () => {
     padding: 0.1rem 0.5rem;
     border-radius: var(--borderRadius-m);
     font-size: 0.7rem;
-
+    line-height: 0.8rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

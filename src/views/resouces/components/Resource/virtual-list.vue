@@ -36,10 +36,11 @@ const convertVirtualData = computed(() => {
 
 <style scoped>
 .virtual-list {
+    position: relative;
     height: inherit;
     display: flex;
     overflow: auto;
     gap: 0.6rem;
-    /* 防止容器自身滚动 */
+    padding: 1rem;
 }
 </style>
