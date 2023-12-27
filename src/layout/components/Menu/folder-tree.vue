@@ -38,7 +38,7 @@ const menuData: TreeProps['treeData'] = [
                     <span class="title">{{ title }}</span>
                     <Context trigger="click" :type="'Folder'" :data="key">
                         <div class="more">
-                            <EllipsisHorizontalIcon />
+                            <EllipsisHorizontalIcon class="w-full" />
                         </div>
                     </Context>
                 </div>

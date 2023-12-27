@@ -67,18 +67,18 @@ const hidePreview = () => {
 <template>
     <div class="preview-toolbar">
         <div class="tool-item" @click="hidePreview">
-            <ChevronLeftIcon></ChevronLeftIcon>
+            <ChevronLeftIcon class="w-full"></ChevronLeftIcon>
         </div>
         <div class="row-item">
             <div class="tool-item">
-                <ArrowLeftIcon></ArrowLeftIcon>
+                <ArrowLeftIcon class="w-full"></ArrowLeftIcon>
             </div>
             <div class="tool-item">
-                <ArrowRightIcon></ArrowRightIcon>
+                <ArrowRightIcon class="w-full"></ArrowRightIcon>
             </div>
             <Tooltip :title="tool.label" v-for="tool in PreviewTools">
                 <div @click="handleTool(tool.name)" class="tool-item">
-                    <component :is="tool.icon"></component>
+                    <component :is="tool.icon" class="w-full"></component>
                 </div>
             </Tooltip>
             <div @click="handleTool('fullscreen')" :class="{ 'active': Fullscreen }" class="tool-item">
