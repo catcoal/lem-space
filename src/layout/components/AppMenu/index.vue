@@ -7,7 +7,7 @@ const toSetting = () => useSettingStore().SettingModal.open();
 
 <template>
     <div class="app-menu">
-        <div class="user-item">用户信息</div>
+        <div class="user-item"></div>
         <div class="app-options">
             <div class="option-item" @click="toSetting">
                 <Cog6ToothIcon></Cog6ToothIcon>

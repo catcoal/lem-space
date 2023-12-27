@@ -13,9 +13,21 @@ tauri(vue3 + rust)
 <img src="./docs/examples/example_pixcall.png" width="51%"/>
 
 ## 开发记录
-```2023/12/14```
 
-<img src="./docs/dev-log/screenshot_2023_12_14.png" width="51%"/>
+```2023/12/25```
+- 新增素材虚拟列表，以及数据瀑布流布局
+
+<img src="./docs/dev-log/screenshot_2023_12_25.png" width="51%"/>
+
+```2023/12/20```
+- 新增素材预览(图片)
+
+<img src="./docs/dev-log/screenshot_2023_12_20.png" width="51%"/>
+
+```2023/12/18```
+- 新增设置/主题切换
+
+<img src="./docs/dev-log/screenshot_2023_12_18.png" width="51%"/>
 
 ```2023/12/16```
 - 完善一级素材展示及部分功能
@@ -24,17 +36,6 @@ tauri(vue3 + rust)
 <img src="./docs/dev-log/screenshot_2023_12_16_0.png" width="51%"/>
 <img src="./docs/dev-log/screenshot_2023_12_16_1.png" width="51%"/>
 
-```2023/12/18```
-- 新增设置/主题切换
+```2023/12/14```
 
-<img src="./docs/dev-log/screenshot_2023_12_18.png" width="51%"/>
-
-```2023/12/20```
-- 新增素材预览(图片)
-
-<img src="./docs/dev-log/screenshot_2023_12_20.png" width="51%"/>
-
-```2023/12/25```
-- 新增素材虚拟列表，以及数据瀑布流布局
-
-<img src="./docs/dev-log/screenshot_2023_12_25.png" width="51%"/>
+<img src="./docs/dev-log/screenshot_2023_12_14.png" width="51%"/>

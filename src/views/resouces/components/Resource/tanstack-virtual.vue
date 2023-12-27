@@ -47,7 +47,8 @@ const measureElement = (el: any) => {
                 top: 0,
                 left: 0,
                 width: '100%',
-                transform: `translateY(${virtualRows[index].start}px)`,
+                willChange: 'transform',
+                transform: `translate3d(0,${virtualRows[index].start}px,0)`,
             }">
             <ResourceItem :resource="resources[virtualRow.index]"></ResourceItem>
         </div>
