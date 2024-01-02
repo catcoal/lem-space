@@ -16,7 +16,7 @@ const VirtualizerOptions = computed(() => {
         count: props.resources?.length, // 总数
         getScrollElement: () => props.parentRef, // 滚动节点
         estimateSize: () => props.parentRef.clientHeight / props.resources?.length, // 资源高大小
-        overscan: 2, // 前后的预加载数据
+        overscan: 1, // 前后的预加载数据
         paddingEnd: 100, // 下边距px
     }
 })
