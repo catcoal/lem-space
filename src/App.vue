@@ -8,7 +8,7 @@ const antThemeConfig = computed(() => AppStore.antThemeConfig);
 onBeforeMount(() => {
   // 初始化主题
   AppStore.InitTheme();
-})
+});
 </script>
 
 <template>
