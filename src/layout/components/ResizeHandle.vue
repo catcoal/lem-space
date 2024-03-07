@@ -62,8 +62,8 @@ const handleMouseUp = () => {
 <style scoped>
 .resize-handle {
     position: absolute;
-    height: 100%;
-    top: 0;
+    height: 99%;
+    top: 0.5%;
     cursor: col-resize;
     width: 5px;
 }
@@ -81,6 +81,7 @@ const handleMouseUp = () => {
     right: 0;
     top: 0;
     height: 100%;
+    border-radius: 2px;
     width: 2px;
     background-color: var(--theme-color);
 }

@@ -4,6 +4,8 @@
   box-sizing: border-box;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 html,

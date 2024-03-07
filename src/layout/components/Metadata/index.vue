@@ -75,6 +75,8 @@ import Cover from "@/components/Cover/index.vue";
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: auto;
     gap: 1rem;
 }
 

@@ -26,17 +26,14 @@ const preview = () => {
 
 <template>
   <Context type="File" trigger="contextmenu">
-    <div
-      @click.stop="select"
-      @dblclick.stop="preview()"
-      class="resource-item"
-      :class="{ selected: selectedResource }"
-    >
+    <div @click.stop="select" @dblclick.stop="preview()" class="resource-item" :class="{ selected: selectedResource }">
       <div class="cover-wrap">
         <Cover :layout-type="coverLayoutType" :resource="resource"></Cover>
       </div>
       <div class="info-wrap">
-        <p>{{ resource.name }}</p>
+        <p>
+          <span>{{ resource.name }}</span>
+        </p>
         <span>0x0</span>
       </div>
     </div>
@@ -50,11 +47,11 @@ const preview = () => {
   text-align: center;
 }
 
-.resource-item.selected > .cover-wrap {
+.resource-item.selected>.cover-wrap {
   border-color: var(--theme-color);
 }
 
-.resource-item.selected > .info-wrap > p {
+.resource-item.selected>.info-wrap>p>span {
   color: #ddf4ff;
   background-color: var(--theme-color);
 }
@@ -77,20 +74,25 @@ const preview = () => {
   white-space: nowrap;
 }
 
-.info-wrap > p {
+.info-wrap>p {
+  display: flex;
   width: 100%;
-  align-self: center;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.info-wrap>p>span {
+  display: inline;
   padding: 0.1rem 0.5rem;
   border-radius: var(--borderRadius-m);
   font-size: 0.7rem;
   line-height: 0.8rem;
-  font-weight: 500;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.info-wrap > span {
+.info-wrap>span {
   font-size: 0.6rem;
   opacity: 0.5;
 }

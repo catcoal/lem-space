@@ -55,7 +55,6 @@ aside {
 
 .aside-right {
     border-left-width: 1px;
-    overflow: auto;
 }
 
 main {
